@@ -1,0 +1,11 @@
+nvim
+kitty
+git
+npm
+lazygit
+fd
+rg
+unzip
+delta
+nonicons 
+neo
