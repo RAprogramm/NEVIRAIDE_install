@@ -1,6 +1,8 @@
+// package operations consist of functions wich make installation process easy
 package operations
 
 import (
+	"fmt"
 	"log"
 	"os/exec"
 )
@@ -9,10 +11,10 @@ import (
 func Clone_repo() {
 	repo := "https://github.com/RAprogramm/NEVIRAIDE.git"
 	place := "~/.config/nvim"
-	println("Cloning...")
+	fmt.Println("Cloning...")
 	cmd, err := exec.Command("git", "clone", repo, place).Output()
 	if err != nil {
 		log.Fatal(err)
 	}
-	println(string(cmd))
+	fmt.Println(string(cmd))
 }

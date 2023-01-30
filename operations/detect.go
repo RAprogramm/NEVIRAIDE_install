@@ -1,3 +1,4 @@
+// package operations consist of functions wich make installation process easy
 package operations
 
 import (
@@ -6,14 +7,19 @@ import (
 	"strings"
 )
 
-func Detect_distro() string {
+// Detect_distro function return name of the package manager using by default in your distro
+func Detect_manager() string {
+	var distro_name string
 	cmd, err := exec.Command("uname", "-a").Output()
 	if err != nil {
 		log.Fatal(err)
 	}
-	if strings.ContainsAny(string(cmd), "ubuntu") {
-		package_manager := "apt"
-		return package_manager
+	switch strings.ContainsAny(string(cmd), distro_name) {
+	case distro_name == "ubuntu":
+		return "apt"
+	case distro_name == "manjaro":
+		return "pamac"
+	default:
+		return "pacman"
 	}
-	return "pacman"
 }
